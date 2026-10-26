@@ -82,3 +82,7 @@ Then visit `http://localhost:8000` in any modern web browser.
 If opened directly by double-clicking `index.html` or `products.html`, Gustoso's built-in offline fallback in `js/ui.js` automatically detects the AJAX failure and seamlessly populates the catalog from `js/data.js` with an informative banner.
 
 ---
+## 6. github link
+
+ ### git repo link : https://github.com/kashaf186/gustoso.git
+ 
