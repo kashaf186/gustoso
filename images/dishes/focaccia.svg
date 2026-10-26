@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <filter id="breadShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#78350f" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="#fbf9f5"/>
+  <!-- Wooden Board Background -->
+  <rect x="70" y="55" width="260" height="190" rx="16" fill="#b45309" filter="url(#breadShadow)"/>
+  <rect x="80" y="65" width="240" height="170" rx="12" fill="#d97706"/>
+  <!-- Focaccia Slab -->
+  <rect x="100" y="80" width="200" height="140" rx="14" fill="#fde68a" stroke="#ca8a04" stroke-width="3" filter="url(#breadShadow)"/>
+  <!-- Dimples in focaccia -->
+  <ellipse cx="130" cy="110" rx="12" ry="8" fill="#ca8a04" opacity="0.6"/>
+  <ellipse cx="170" cy="100" rx="14" ry="9" fill="#b45309" opacity="0.6"/>
+  <ellipse cx="220" cy="115" rx="13" ry="8" fill="#ca8a04" opacity="0.6"/>
+  <ellipse cx="270" cy="105" rx="11" ry="7" fill="#b45309" opacity="0.6"/>
+  <ellipse cx="140" cy="150" rx="15" ry="10" fill="#b45309" opacity="0.6"/>
+  <ellipse cx="190" cy="145" rx="16" ry="10" fill="#ca8a04" opacity="0.6"/>
+  <ellipse cx="240" cy="155" rx="14" ry="9" fill="#b45309" opacity="0.6"/>
+  <ellipse cx="160" cy="190" rx="13" ry="8" fill="#ca8a04" opacity="0.6"/>
+  <ellipse cx="210" cy="195" rx="15" ry="9" fill="#b45309" opacity="0.6"/>
+  <ellipse cx="260" cy="185" rx="12" ry="8" fill="#ca8a04" opacity="0.6"/>
+  <!-- Confit Garlic Cloves -->
+  <ellipse cx="170" cy="145" rx="7" ry="5" fill="#fef08a"/>
+  <ellipse cx="220" cy="115" rx="6" ry="4" fill="#fef08a"/>
+  <!-- Rosemary sprigs -->
+  <path d="M125 105 Q145 125 160 110" stroke="#15803d" stroke-width="2.5" fill="none"/>
+  <path d="M135 110 L130 102 M145 118 L142 126 M152 114 L158 120" stroke="#16a34a" stroke-width="2"/>
+  <path d="M220 160 Q245 140 265 160" stroke="#15803d" stroke-width="2.5" fill="none"/>
+  <!-- Flaky sea salt specks -->
+  <rect x="135" cy="140" width="3" height="3" fill="#ffffff"/>
+  <rect x="235" cy="120" width="3" height="3" fill="#ffffff"/>
+  <rect x="180" cy="180" width="3" height="3" fill="#ffffff"/>
+</svg>

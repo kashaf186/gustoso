@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <radialGradient id="crustGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="70%" stop-color="#ea580c"/>
+      <stop offset="90%" stop-color="#c2410c"/>
+      <stop offset="100%" stop-color="#7c2d12"/>
+    </radialGradient>
+    <radialGradient id="sauceGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#b91c1c"/>
+    </radialGradient>
+    <filter id="pzShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#431407" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="#fbf9f5"/>
+  <!-- Charred Neapolitan Crust -->
+  <circle cx="200" cy="150" r="118" fill="url(#crustGrad)" filter="url(#pzShadow)"/>
+  <!-- Tomato Sauce Base -->
+  <circle cx="200" cy="150" r="98" fill="url(#sauceGrad)"/>
+  <!-- Melted Buffalo Mozzarella Islands -->
+  <path d="M150 130 C140 115 165 110 175 125 C185 140 160 145 150 130 Z" fill="#fffbeb"/>
+  <path d="M225 125 C215 110 240 100 250 120 C260 135 240 145 225 125 Z" fill="#fffbeb"/>
+  <path d="M165 175 C150 165 170 150 185 168 C195 180 175 190 165 175 Z" fill="#fffbeb"/>
+  <path d="M220 170 C210 155 235 150 245 165 C255 180 230 190 220 170 Z" fill="#fffbeb"/>
+  <ellipse cx="195" cy="148" rx="16" ry="12" fill="#fffbeb"/>
+  <!-- Charred Wood-fired Blisters -->
+  <circle cx="115" cy="120" r="4" fill="#292524"/>
+  <circle cx="280" cy="130" r="5" fill="#292524"/>
+  <circle cx="140" cy="225" r="4.5" fill="#292524"/>
+  <circle cx="255" cy="220" r="4" fill="#292524"/>
+  <!-- Fresh Green Basil Leaves -->
+  <path d="M185 130 C180 115 195 112 200 122 C196 128 190 130 185 130 Z" fill="#15803d"/>
+  <path d="M220 145 C230 135 240 145 232 152 Z" fill="#16a34a"/>
+  <path d="M170 155 C160 150 168 140 178 148 Z" fill="#22c55e"/>
+  <path d="M195 168 C202 160 212 170 205 175 Z" fill="#15803d"/>
+</svg>

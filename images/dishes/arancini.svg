@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <radialGradient id="aranciniGold" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="35%" stop-color="#d97706"/>
+      <stop offset="80%" stop-color="#92400e"/>
+      <stop offset="100%" stop-color="#451a03"/>
+    </radialGradient>
+    <radialGradient id="plateG2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="85%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </radialGradient>
+    <filter id="shadow2" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="#fbf9f5"/>
+  <circle cx="200" cy="150" r="120" fill="url(#plateG2)" stroke="#cbd5e1" stroke-width="2" filter="url(#shadow2)"/>
+  <!-- Aioli swirl on plate -->
+  <path d="M140 180 Q200 230 260 170" fill="none" stroke="#fef08a" stroke-width="14" stroke-linecap="round" opacity="0.85"/>
+  <!-- Arancini Ball 1 (left) -->
+  <circle cx="155" cy="155" r="38" fill="url(#aranciniGold)" filter="url(#shadow2)"/>
+  <!-- Arancini Ball 2 (right) -->
+  <circle cx="245" cy="155" r="38" fill="url(#aranciniGold)" filter="url(#shadow2)"/>
+  <!-- Arancini Ball 3 (front center cut open) -->
+  <circle cx="200" cy="130" r="42" fill="url(#aranciniGold)" filter="url(#shadow2)"/>
+  <!-- Melting cheese center in center arancini -->
+  <ellipse cx="200" cy="132" rx="16" ry="12" fill="#fffbeb" stroke="#fde047" stroke-width="2"/>
+  <!-- Truffle shavings -->
+  <path d="M192 128 L197 125 L195 132 Z" fill="#1c1917"/>
+  <path d="M204 133 L209 130 L206 136 Z" fill="#1c1917"/>
+  <!-- Micro herbs garnish -->
+  <path d="M198 105 C190 95 205 92 208 102 C202 108 200 106 198 105 Z" fill="#16a34a"/>
+  <path d="M202 105 C210 98 215 105 208 110 Z" fill="#22c55e"/>
+</svg>

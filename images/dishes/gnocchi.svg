@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <radialGradient id="gnBowl" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="85%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </radialGradient>
+    <filter id="gnShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="#fbf9f5"/>
+  <circle cx="200" cy="150" r="120" fill="url(#gnBowl)" stroke="#e2e8f0" stroke-width="2" filter="url(#gnShadow)"/>
+  <!-- Velvety Gorgonzola Sauce Pool -->
+  <circle cx="200" cy="150" r="85" fill="#fef9c3"/>
+  <!-- Blue Cheese Veins in sauce -->
+  <path d="M165 140 Q180 148 175 160" stroke="#0284c7" stroke-width="2" fill="none" opacity="0.6"/>
+  <path d="M215 130 Q225 145 220 155" stroke="#0284c7" stroke-width="2" fill="none" opacity="0.6"/>
+  <!-- Hand-Rolled Ridge-Scored Gnocchi Dumplings -->
+  <g fill="#fde047" stroke="#ca8a04" stroke-width="2">
+    <!-- Gnocchi 1 -->
+    <rect x="145" y="130" width="26" height="18" rx="8" transform="rotate(15 158 139)"/>
+    <!-- Gnocchi 2 -->
+    <rect x="185" y="115" width="28" height="19" rx="8" transform="rotate(-10 199 124)"/>
+    <!-- Gnocchi 3 -->
+    <rect x="225" y="135" width="27" height="18" rx="8" transform="rotate(30 238 144)"/>
+    <!-- Gnocchi 4 -->
+    <rect x="160" y="165" width="28" height="19" rx="8" transform="rotate(-20 174 174)"/>
+    <!-- Gnocchi 5 -->
+    <rect x="205" y="160" width="27" height="18" rx="8" transform="rotate(10 218 169)"/>
+    <!-- Gnocchi 6 (center) -->
+    <rect x="180" y="140" width="28" height="19" rx="8" transform="rotate(5 194 149)"/>
+  </g>
+  <!-- Toasted Walnuts -->
+  <ellipse cx="145" cy="155" rx="8" ry="6" fill="#92400e"/>
+  <ellipse cx="235" cy="120" rx="9" ry="7" fill="#78350f"/>
+  <ellipse cx="230" cy="175" rx="8" ry="6" fill="#92400e"/>
+  <!-- Crispy Fried Sage Leaves -->
+  <path d="M190 135 C175 125 185 110 200 120 C195 130 192 135 190 135 Z" fill="#15803d"/>
+  <path d="M210 150 C225 140 230 155 215 160 Z" fill="#16a34a"/>
+</svg>

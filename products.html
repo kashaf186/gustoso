@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore Gustoso's handcrafted Italian menu. Browse antipasti starters, fresh egg pasta, wood-fired pizzas, and artisanal desserts. Order online with instant bill calculation." />
+  <meta name="keywords" content="Italian menu, starters, main courses, desserts, handmade pasta, risotto, tiramisu, online order" />
+  <title>Our Menu &amp; Dishes | Gustoso Artisanal Kitchen</title>
+
+  <!-- External Stylesheet strictly required -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google Fonts for Editorial Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Site Header & Common Linked Navigation (Flexbox) -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav" aria-label="Main Navigation">
+        <a href="index.html" class="brand-link" title="Gustoso Home">
+          <img src="images/logo.svg" alt="Gustoso Artisanal Italian Kitchen Logo" class="brand-logo" />
+        </a>
+
+        <!-- Common Linked Navigation Bar -->
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="products.html" class="nav-link active" aria-current="page">Our Menu</a></li>
+          <li><a href="cart.html" class="nav-link">Order &amp; Checkout</a></li>
+          <li><a href="contact.html" class="nav-link">Contact &amp; Reserve</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <!-- Light/Dark Mode Switcher -->
+          <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light mode">
+            🌙
+          </button>
+
+          <!-- Interactive Cart Badge Button -->
+          <a href="cart.html" class="nav-cart-btn" title="View your dining cart">
+            <span>🛒 Order</span>
+            <span id="cart-count" class="cart-badge">0</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Semantic Page Content -->
+  <main id="main-content">
+
+    <!-- Menu Hero / Introduction -->
+    <section class="menu-intro-section" style="padding: 2.5rem 0 1rem; text-align: center;">
+      <div class="container">
+        <span class="section-tag">Artisanal Dining</span>
+        <h1 class="section-title">The Culinary Menu</h1>
+        <p class="section-subtitle">
+          Every dish is prepared to order using certified Italian ingredients, organic local produce, and traditional culinary craftsmanship.
+        </p>
+      </div>
+    </section>
+
+    <!-- Menu Catalog Section -->
+    <section class="menu-section" aria-labelledby="catalog-heading">
+      <div class="container">
+        <h2 id="catalog-heading" class="visually-hidden" style="display:none;">Dish Catalog</h2>
+
+        <!-- Interactive Controls Bar: Live Search, Filter Buttons, Sorting -->
+        <div class="controls-bar" role="search" aria-label="Filter and Sort Dishes">
+          <!-- Search by Name or Ingredients (filter()) -->
+          <div class="search-box">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input 
+              type="text" 
+              id="search-input" 
+              class="search-input" 
+              placeholder="Search dishes, pasta, or ingredients..." 
+              aria-label="Search dishes by name or ingredients" 
+            />
+          </div>
+
+          <!-- Category Filter Pills (filter()) -->
+          <ul class="filter-group" role="tablist" aria-label="Dish Categories">
+            <li>
+              <button type="button" class="filter-btn active" data-category="all" role="tab" aria-selected="true">
+                All Dishes
+              </button>
+            </li>
+            <li>
+              <button type="button" class="filter-btn" data-category="starters" role="tab" aria-selected="false">
+                Antipasti / Starters
+              </button>
+            </li>
+            <li>
+              <button type="button" class="filter-btn" data-category="main_course" role="tab" aria-selected="false">
+                Primi &amp; Main Course
+              </button>
+            </li>
+            <li>
+              <button type="button" class="filter-btn" data-category="desserts" role="tab" aria-selected="false">
+                Dolci / Desserts
+              </button>
+            </li>
+          </ul>
+
+          <!-- Sort Dropdown (sort() with spread operator [...arr]) -->
+          <div class="sort-group">
+            <label for="sort-select" class="sort-label">Sort By:</label>
+            <select id="sort-select" class="sort-select" aria-label="Sort dishes">
+              <option value="featured">Chef's Recommended</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+              <option value="rating">Highest Customer Rating</option>
+              <option value="name">Alphabetical (A to Z)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- AJAX Loading Indicator & Fallback Error Alerts -->
+        <div id="products-loader" style="text-align: center; padding: 2rem; font-weight: 600; color: var(--primary);"></div>
+        <div id="products-error" style="display: none; background: var(--bg-subtle); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.5rem; text-align: center; border: 1px solid var(--border-color);"></div>
+
+        <!-- Dynamic Responsive Product Grid (CSS Grid: 3 cols -> 2 cols @ 768px -> 1 col @ 480px) -->
+        <div id="dishes-grid" class="dishes-grid" aria-live="polite">
+          <!-- Populated dynamically via store.js & jQuery AJAX ui.js -->
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Quick-View Dish Modal Dialog (Powered by Array.prototype.find()) -->
+  <div id="dish-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-dish-title">
+    <div class="modal-content">
+      <header class="modal-header">
+        <h3 id="modal-dish-title" class="modal-title">Dish Details</h3>
+        <button type="button" id="modal-close-btn" class="modal-close" aria-label="Close modal window">✕</button>
+      </header>
+      <div class="modal-body">
+        <div class="modal-img-col">
+          <img id="modal-dish-img" src="images/hero-chef.svg" alt="Dish preview" class="modal-img" />
+        </div>
+        <div class="modal-info-col">
+          <div id="modal-dish-meta" class="dish-meta"></div>
+          <p id="modal-dish-desc" class="modal-desc"></p>
+          <div class="modal-ingredients">
+            <h4 class="ingredients-title">Key Artisanal Ingredients:</h4>
+            <ul id="modal-dish-ingredients" class="ingredients-list"></ul>
+          </div>
+        </div>
+      </div>
+      <footer class="modal-footer">
+        <span id="modal-dish-price" class="dish-price">$0.00</span>
+        <button type="button" id="modal-add-cart-btn" class="btn btn-primary">Add to Order</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Floating Toast Notification (jQuery fadeIn/fadeOut) -->
+  <aside id="toast-notification" class="toast-notification" role="status" aria-live="polite">
+    Order updated!
+  </aside>
+
+  <!-- Back to Top Button (jQuery .animate smooth scroll) -->
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Scroll back to top of page" title="Back to top">
+    ↑
+  </button>
+
+  <!-- Semantic Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-text">GUSTOSO</div>
+          <p class="footer-desc">
+            Artisanal Italian kitchen dedicated to traditional hand-kneaded pasta, wood-fired recipes, and modern dining experiences.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="products.html" class="footer-link">Full Menu</a></li>
+            <li><a href="cart.html" class="footer-link">Order &amp; Cart</a></li>
+            <li><a href="contact.html" class="footer-link">Reservations</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Culinary Hours</h4>
+          <ul class="footer-links">
+            <li>Mon – Thu: 12:00 PM – 10:00 PM</li>
+            <li>Fri – Sat: 12:00 PM – 11:30 PM</li>
+            <li>Sunday: 1:00 PM – 9:30 PM</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Location &amp; Inquiries</h4>
+          <ul class="footer-links">
+            <li>📍 42 Via Della Spiga, Florence District</li>
+            <li>📞 +1 (555) 782-4267</li>
+            <li>✉️ reservations@gustoso.it</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gustoso Artisanal Italian Kitchen. Built with HTML5, CSS3, JavaScript (ES6) &amp; jQuery.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: jQuery CDN, Fallback Data, ES6 Store Logic, jQuery UI & AJAX -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

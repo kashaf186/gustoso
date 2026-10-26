@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <radialGradient id="pannaGrad" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="70%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </radialGradient>
+    <radialGradient id="glassPlate" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="85%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </radialGradient>
+    <filter id="pnShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="#fbf9f5"/>
+  <circle cx="200" cy="150" r="120" fill="url(#glassPlate)" stroke="#cbd5e1" stroke-width="2" filter="url(#pnShadow)"/>
+  <!-- Tangy Limoncello Gelée Mirror Glaze -->
+  <ellipse cx="200" cy="180" rx="75" ry="25" fill="#fef08a" opacity="0.6"/>
+  <!-- Molded Panna Cotta Dome -->
+  <g filter="url(#pnShadow)">
+    <path d="M150 175 C150 120 170 100 200 100 C230 100 250 120 250 175 C250 190 150 190 150 175 Z" fill="url(#pannaGrad)"/>
+    <!-- Yellow Amalfi Limoncello Coulis Cascading down -->
+    <path d="M185 102 C190 125 180 145 185 160 C190 170 210 170 215 155 C220 140 210 120 215 102 Z" fill="#facc15" opacity="0.85"/>
+  </g>
+  <!-- Fresh Blackberries and Blueberries -->
+  <circle cx="160" cy="180" r="10" fill="#312e81"/>
+  <circle cx="163" cy="176" r="3" fill="#4338ca"/>
+  <circle cx="240" cy="175" r="9" fill="#1e1b4b"/>
+  <circle cx="242" cy="172" r="2.5" fill="#3730a3"/>
+  <circle cx="225" cy="190" r="8" fill="#312e81"/>
+  <!-- Lemon Zest Twist and Mint -->
+  <path d="M195 90 Q205 75 210 95" stroke="#eab308" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M200 95 C205 85 218 88 212 98 Z" fill="#16a34a"/>
+</svg>

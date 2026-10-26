@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 70" width="100%" height="100%">
+  <defs>
+    <linearGradient id="logoFlame" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#b91c1c"/>
+      <stop offset="50%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+  <!-- Fork & Wheat / Chef emblem -->
+  <g transform="translate(10, 10)">
+    <circle cx="25" cy="25" r="24" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+    <!-- Chef Hat + Pasta Swirl -->
+    <path d="M16 28 C12 24 14 18 18 18 C19 14 24 13 26 15 C29 13 34 14 34 18 C37 19 38 24 34 28 Z" fill="url(#logoFlame)"/>
+    <rect x="18" y="28" width="16" height="4" rx="2" fill="#9a3412"/>
+    <!-- Fork silhouette -->
+    <path d="M23 34 L27 34 L26 42 L24 42 Z" fill="#9a3412"/>
+  </g>
+  <!-- Text Brand -->
+  <text x="68" y="38" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-size="28" font-weight="700" fill="#9a3412" letter-spacing="1">GUSTOSO</text>
+  <text x="70" y="52" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="10" font-weight="600" fill="#78716c" letter-spacing="2.5">ARTISANAL ITALIAN KITCHEN</text>
+</svg>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Review your artisanal Italian order, modify quantities, apply discount voucher coupons, and fill in our verified checkout form." />
+  <meta name="keywords" content="order summary, cart table, checkout form, discount code, restaurant delivery" />
+  <title>Order &amp; Checkout | Gustoso Artisanal Kitchen</title>
+
+  <!-- External Stylesheet strictly required -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google Fonts for Editorial Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Site Header & Common Linked Navigation (Flexbox) -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav" aria-label="Main Navigation">
+        <a href="index.html" class="brand-link" title="Gustoso Home">
+          <img src="images/logo.svg" alt="Gustoso Artisanal Italian Kitchen Logo" class="brand-logo" />
+        </a>
+
+        <!-- Common Linked Navigation Bar -->
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="products.html" class="nav-link">Our Menu</a></li>
+          <li><a href="cart.html" class="nav-link active" aria-current="page">Order &amp; Checkout</a></li>
+          <li><a href="contact.html" class="nav-link">Contact &amp; Reserve</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <!-- Light/Dark Mode Switcher -->
+          <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light mode">
+            🌙
+          </button>
+
+          <!-- Interactive Cart Badge Button -->
+          <a href="cart.html" class="nav-cart-btn" title="View your dining cart">
+            <span>🛒 Order</span>
+            <span id="cart-count" class="cart-badge">0</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Semantic Page Content -->
+  <main id="main-content">
+
+    <section class="cart-section" style="padding: 2.5rem 0;" aria-labelledby="cart-heading">
+      <div class="container">
+
+        <header class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
+          <span class="section-tag">Step 1 of 2 • Order Review</span>
+          <h1 id="cart-heading" class="section-title">Your Culinary Order &amp; Checkout</h1>
+        </header>
+
+        <!-- Empty Cart Notice (Shown dynamically if cart is empty) -->
+        <div id="cart-empty-state" style="display: none; text-align: center; padding: 4rem 1rem; background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--border-color);">
+          <p style="font-size: 3rem; margin-bottom: 0.75rem;">🍽️</p>
+          <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem;">Your Dining Cart is Empty</h2>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem;">You have not selected any handcrafted dishes yet.</p>
+          <a href="products.html" class="btn btn-primary">Browse Delicious Menu</a>
+        </div>
+
+        <!-- Cart Content Wrapper (Grid Layout: Table on left, Summary on right) -->
+        <div id="cart-content-wrapper" class="cart-layout">
+
+          <!-- Left Column: Order Items Table (Strictly requires <table>) -->
+          <div class="cart-table-wrapper">
+            <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">Selected Dishes</h2>
+            <table class="cart-table" aria-label="Your Ordered Items">
+              <thead>
+                <tr>
+                  <th scope="col">Dish</th>
+                  <th scope="col">Unit Price</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Subtotal</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody id="cart-table-body">
+                <!-- Rows injected dynamically via store.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Right Column: Order Summary & Coupon Code Engine -->
+          <aside class="order-summary-card" aria-labelledby="summary-heading">
+            <h2 id="summary-heading" class="summary-title">Bill Breakdown</h2>
+
+            <div class="summary-row">
+              <span>Items Subtotal:</span>
+              <strong id="summary-subtotal">$0.00</strong>
+            </div>
+
+            <!-- Discount Row (Dynamically calculated via Rest Parameter function) -->
+            <div id="summary-discount-row" class="summary-row discount-row" style="display: none;">
+              <span>Voucher Savings:</span>
+              <strong id="summary-discount">-$0.00</strong>
+            </div>
+
+            <div class="summary-row">
+              <span>Kitchen Express Delivery:</span>
+              <strong id="summary-delivery">$4.99</strong>
+            </div>
+
+            <!-- Grand Total Row (calculated via reduce()) -->
+            <div class="summary-row total-row">
+              <span>Grand Total:</span>
+              <span id="summary-grand-total" style="color: var(--primary);">$0.00</span>
+            </div>
+
+            <!-- Voucher Code Engine (Bonus Feature: Rest Parameter function) -->
+            <div class="coupon-box">
+              <input 
+                type="text" 
+                id="coupon-code-input" 
+                class="coupon-input" 
+                placeholder="PROMO CODE (e.g. GUSTO10)" 
+                aria-label="Voucher or promo code" 
+              />
+              <button type="button" id="apply-coupon-btn" class="btn btn-secondary btn-sm">
+                Apply
+              </button>
+            </div>
+            <p id="coupon-feedback" style="font-size: 0.8rem; font-weight: 600; min-height: 1.2rem;"></p>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">
+              💡 <em>Try active promotion codes: <strong>GUSTO10</strong> (10% off), <strong>TASTY20</strong> (20% off), or <strong>FREEDELIVERY</strong>!</em>
+            </p>
+          </aside>
+
+        </div>
+
+        <!-- Step 2: Checkout Form (Form with at least 6 fields & HTML5 validation) -->
+        <section class="form-card" aria-labelledby="checkout-form-title">
+          <header style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+            <span class="section-tag">Step 2 of 2 • Guest Details</span>
+            <h2 id="checkout-form-title" style="font-family: var(--font-serif); font-size: 1.75rem;">Delivery &amp; Dining Information</h2>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Please complete your dining information. All orders are validated and transmitted securely to our kitchen.</p>
+          </header>
+
+          <!-- Order Placed Success Confirmation Box -->
+          <div id="checkout-success-message" style="display: none;"></div>
+
+          <form id="checkout-form" novalidate aria-label="Checkout Form">
+            <div class="form-grid">
+
+              <!-- Field 1: Full Name (type="text", minlength, required) -->
+              <div class="form-group">
+                <label for="checkout-name" class="form-label">
+                  Full Name <span class="required-star">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="checkout-name" 
+                  name="full_name" 
+                  class="form-control" 
+                  placeholder="e.g. Marco Rossi" 
+                  required 
+                  minlength="3" 
+                />
+                <span id="error-checkout-name" class="error-message"></span>
+              </div>
+
+              <!-- Field 2: Email (type="email", required) -->
+              <div class="form-group">
+                <label for="checkout-email" class="form-label">
+                  Email Address <span class="required-star">*</span>
+                </label>
+                <input 
+                  type="email" 
+                  id="checkout-email" 
+                  name="email" 
+                  class="form-control" 
+                  placeholder="e.g. marco.rossi@example.com" 
+                  required 
+                />
+                <span id="error-checkout-email" class="error-message"></span>
+              </div>
+
+              <!-- Field 3: Phone (type="tel", pattern, required) -->
+              <div class="form-group">
+                <label for="checkout-phone" class="form-label">
+                  Contact Phone <span class="required-star">*</span>
+                </label>
+                <input 
+                  type="tel" 
+                  id="checkout-phone" 
+                  name="phone" 
+                  class="form-control" 
+                  placeholder="e.g. +1 555-019-2831" 
+                  pattern="^[+]?[0-9\s-]{8,15}$" 
+                  required 
+                />
+                <span id="error-checkout-phone" class="error-message"></span>
+              </div>
+
+              <!-- Field 4: Postal Code or Table Number (type="number", min, required) -->
+              <div class="form-group">
+                <label for="checkout-number" class="form-label">
+                  Postal Code / Table Number <span class="required-star">*</span>
+                </label>
+                <input 
+                  type="number" 
+                  id="checkout-number" 
+                  name="postal_or_table" 
+                  class="form-control" 
+                  placeholder="e.g. 50123 (or Table 14)" 
+                  min="1" 
+                  required 
+                />
+                <span id="error-checkout-number" class="error-message"></span>
+              </div>
+
+              <!-- Field 5: Dining Service Type (select, required) -->
+              <div class="form-group">
+                <label for="checkout-dining-type" class="form-label">
+                  Dining Service Mode <span class="required-star">*</span>
+                </label>
+                <select id="checkout-dining-type" name="dining_type" class="form-control" required>
+                  <option value="">-- Choose Dining Mode --</option>
+                  <option value="delivery">Express Home Delivery (35-45 mins)</option>
+                  <option value="pickup">Curbside Trattoria Pickup</option>
+                  <option value="dine-in">Dine-In Table Order</option>
+                </select>
+                <span id="error-checkout-dining-type" class="error-message"></span>
+              </div>
+
+              <!-- Field 6: Street Address (type="text", minlength, required) -->
+              <div class="form-group">
+                <label for="checkout-address" class="form-label">
+                  Delivery Address / Trattoria Area <span class="required-star">*</span>
+                </label>
+                <input 
+                  type="text" 
+                  id="checkout-address" 
+                  name="street_address" 
+                  class="form-control" 
+                  placeholder="e.g. 124 Tuscan Way, Suite 4B" 
+                  required 
+                  minlength="5" 
+                />
+                <span id="error-checkout-address" class="error-message"></span>
+              </div>
+
+              <!-- Field 7: Payment Method (radio options) -->
+              <div class="form-group full-width">
+                <label class="form-label">
+                  Payment Method <span class="required-star">*</span>
+                </label>
+                <div class="radio-group" role="radiogroup" aria-label="Payment Method Selection">
+                  <label class="radio-option">
+                    <input type="radio" name="payment_method" value="credit_card" checked />
+                    <span>💳 Credit or Debit Card</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="payment_method" value="apple_pay" />
+                    <span>📱 Apple Pay / Google Pay</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="payment_method" value="cash" />
+                    <span>💵 Cash on Delivery / Counter</span>
+                  </label>
+                </div>
+                <span id="error-payment-method" class="error-message"></span>
+              </div>
+
+              <!-- Field 8: Chef Notes / Dietary Requests (textarea) -->
+              <div class="form-group full-width">
+                <label for="checkout-notes" class="form-label">
+                  Dietary Preferences &amp; Chef Special Instructions (Optional)
+                </label>
+                <textarea 
+                  id="checkout-notes" 
+                  name="chef_notes" 
+                  class="form-control" 
+                  rows="3" 
+                  placeholder="e.g. Extra parmesan, dressing on the side, or allergy precautions..."
+                ></textarea>
+              </div>
+
+              <!-- Field 9: Terms & Conditions (checkbox, required) -->
+              <div class="form-group full-width">
+                <label class="checkbox-option">
+                  <input type="checkbox" id="checkout-terms" name="agree_terms" required />
+                  <span>I confirm that the above order details are correct and agree to Gustoso's fresh food preparation policies. <span class="required-star">*</span></span>
+                </label>
+                <span id="error-checkout-terms" class="error-message"></span>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="form-group full-width" style="margin-top: 1rem;">
+                <button type="submit" id="submit-order-btn" class="btn btn-primary btn-block" style="padding: 1rem; font-size: 1.1rem;">
+                  🔒 Confirm &amp; Place Order Now
+                </button>
+              </div>
+
+            </div>
+          </form>
+        </section>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Floating Toast Notification (jQuery fadeIn/fadeOut) -->
+  <aside id="toast-notification" class="toast-notification" role="status" aria-live="polite">
+    Order updated!
+  </aside>
+
+  <!-- Back to Top Button (jQuery .animate smooth scroll) -->
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Scroll back to top of page" title="Back to top">
+    ↑
+  </button>
+
+  <!-- Semantic Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-text">GUSTOSO</div>
+          <p class="footer-desc">
+            Artisanal Italian kitchen dedicated to traditional hand-kneaded pasta, wood-fired recipes, and modern dining experiences.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="products.html" class="footer-link">Full Menu</a></li>
+            <li><a href="cart.html" class="footer-link">Order &amp; Cart</a></li>
+            <li><a href="contact.html" class="footer-link">Reservations</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Culinary Hours</h4>
+          <ul class="footer-links">
+            <li>Mon – Thu: 12:00 PM – 10:00 PM</li>
+            <li>Fri – Sat: 12:00 PM – 11:30 PM</li>
+            <li>Sunday: 1:00 PM – 9:30 PM</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Location &amp; Inquiries</h4>
+          <ul class="footer-links">
+            <li>📍 42 Via Della Spiga, Florence District</li>
+            <li>📞 +1 (555) 782-4267</li>
+            <li>✉️ reservations@gustoso.it</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gustoso Artisanal Italian Kitchen. Built with HTML5, CSS3, JavaScript (ES6) &amp; jQuery.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: jQuery CDN, Fallback Data, ES6 Store Logic, jQuery UI & AJAX -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

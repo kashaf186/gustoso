@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gustoso Artisanal Italian Kitchen - Authentic handcrafted pasta, wood-fired Neapolitan pizzas, and slow-braised Italian specialties made fresh daily." />
+  <meta name="keywords" content="Italian restaurant, artisan pasta, wood-fired pizza, online food ordering, fine dining, trattoria" />
+  <title>Gustoso | Artisanal Italian Kitchen &amp; Online Ordering</title>
+
+  <!-- External Stylesheet strictly required -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google Fonts for Editorial Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Site Header & Linked Navigation (Flexbox) -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav" aria-label="Main Navigation">
+        <a href="index.html" class="brand-link" title="Gustoso Home">
+          <img src="images/logo.svg" alt="Gustoso Artisanal Italian Kitchen Logo" class="brand-logo" />
+        </a>
+
+        <!-- Common Linked Navigation Bar -->
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active" aria-current="page">Home</a></li>
+          <li><a href="products.html" class="nav-link">Our Menu</a></li>
+          <li><a href="cart.html" class="nav-link">Order &amp; Checkout</a></li>
+          <li><a href="contact.html" class="nav-link">Contact &amp; Reserve</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <!-- Light/Dark Mode Switcher (Bonus Feature) -->
+          <button type="button" id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light mode">
+            🌙
+          </button>
+
+          <!-- Interactive Cart Badge Button -->
+          <a href="cart.html" class="nav-cart-btn" title="View your dining cart">
+            <span>🛒 Order</span>
+            <span id="cart-count" class="cart-badge">0</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Semantic Page Content -->
+  <main id="main-content">
+
+    <!-- Hero Section (Flexbox layout) -->
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <div class="container hero-layout">
+        <div class="hero-content">
+          <p class="hero-subtitle">Authentic Italian Heritage • Since 1984</p>
+          <h1 id="hero-heading" class="hero-title">Centuries of Culinary Passion, Rolled by Hand Daily.</h1>
+          <p class="hero-description">
+            Experience authentic Italian gastronomy: stone-milled semolina pasta rolled fresh every morning, 
+            naturally fermented sourdough pizzas baked in an oak-fired oven, and time-honored Tuscan specialties.
+          </p>
+          <div class="hero-actions">
+            <a href="products.html" class="btn btn-primary">Browse Full Menu 🍝</a>
+            <a href="contact.html" class="btn btn-secondary">Reserve a Table 🍷</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="images/hero-chef.svg" alt="Artisan Italian chef searing fresh pasta with herbs and flame" class="hero-img" width="540" height="420" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Culinary Highlights / Features (CSS Grid layout) -->
+    <section class="features-section" aria-labelledby="features-heading">
+      <div class="container">
+        <h2 id="features-heading" class="visually-hidden" style="display:none;">Our Culinary Philosophy</h2>
+        <div class="features-grid">
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">🌾</span>
+            <h3 class="feature-title">Fresh Handmade Pasta</h3>
+            <p class="feature-text">Crafted every sunrise with Italian Tipo 00 flour, free-range egg yolks, and traditional bronze dies.</p>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">🔥</span>
+            <h3 class="feature-title">900°F Wood-Fired Oven</h3>
+            <p class="feature-text">Imported volcanic stone oven from Naples baking sourdough pizzas in under 90 blistered seconds.</p>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">🍅</span>
+            <h3 class="feature-title">San Marzano D.O.P.</h3>
+            <p class="feature-text">Sun-ripened tomatoes grown in rich volcanic soil near Mount Vesuvius for unmatched sweetness.</p>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-icon" aria-hidden="true">🛵</span>
+            <h3 class="feature-title">Fast Heated Delivery</h3>
+            <p class="feature-text">Custom thermal insulated packaging ensuring your dishes arrive at restaurant piping hot temperature.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Dishes Section (Dynamically rendered via AJAX & JavaScript) -->
+    <section class="featured-section" aria-labelledby="featured-heading">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Chef's Masterpieces</span>
+          <h2 id="featured-heading" class="section-title">Today's Handcrafted Highlights</h2>
+          <p class="section-subtitle">A curated preview of our guests' highest-rated Italian culinary dishes. Prepared with passion and seasonal ingredients.</p>
+        </header>
+
+        <!-- Dynamic Featured Dishes Container -->
+        <div id="featured-grid" class="dishes-grid" aria-live="polite">
+          <!-- Populated dynamically via store.js & ui.js -->
+        </div>
+
+        <div style="text-align: center; margin-top: 2.5rem;">
+          <a href="products.html" class="btn btn-primary" style="padding: 0.85rem 2rem;">
+            Explore All 15 Dishes &amp; Categories →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Accordion Section (Animated with jQuery .slideToggle) -->
+    <section class="faq-section" aria-labelledby="faq-heading">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Common Questions</span>
+          <h2 id="faq-heading" class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Everything you need to know about table reservations, our delivery process, and dietary accommodations.</p>
+        </header>
+
+        <div class="faq-container">
+          <!-- FAQ Item 1 -->
+          <article class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>How do you guarantee the pasta arrives fresh and hot?</span>
+              <span class="faq-icon" aria-hidden="true">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>We cook our artisanal pasta slightly al dente and package the sauces in temperature-regulated steam-release containers. When your courier arrives within our 35-minute radius, the dish completes its gentle rest to absolute perfection.</p>
+            </div>
+          </article>
+
+          <!-- FAQ Item 2 -->
+          <article class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Do you offer gluten-free, vegetarian, and dairy-free options?</span>
+              <span class="faq-icon" aria-hidden="true">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! We take dietary safety very seriously. Over 60% of our menu items are vegetarian-friendly, and we offer organic corn/rice flour pasta substitutes for nearly every pasta dish upon request in your checkout chef notes.</p>
+            </div>
+          </article>
+
+          <!-- FAQ Item 3 -->
+          <article class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>How do voucher discount codes work?</span>
+              <span class="faq-icon" aria-hidden="true">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>You can enter coupon codes like <strong>GUSTO10</strong> (10% off), <strong>TASTY20</strong> (20% off), or <strong>FREEDELIVERY</strong> directly in the Order &amp; Checkout page. Our rest-parameter discount engine dynamically calculates the deduction in real time!</p>
+            </div>
+          </article>
+
+          <!-- FAQ Item 4 -->
+          <article class="faq-item">
+            <button type="button" class="faq-question" aria-expanded="false">
+              <span>Can I book a private party or terrace table?</span>
+              <span class="faq-icon" aria-hidden="true">▼</span>
+            </button>
+            <div class="faq-answer">
+              <p>Absolutely. Visit our Contact &amp; Reserve page to submit a party booking request. For groups larger than 8, our sommelier and executive chef offer custom tasting menu pairings.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Quick-View Dish Modal Dialog -->
+  <div id="dish-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-dish-title">
+    <div class="modal-content">
+      <header class="modal-header">
+        <h3 id="modal-dish-title" class="modal-title">Dish Details</h3>
+        <button type="button" id="modal-close-btn" class="modal-close" aria-label="Close modal window">✕</button>
+      </header>
+      <div class="modal-body">
+        <div class="modal-img-col">
+          <img id="modal-dish-img" src="images/hero-chef.svg" alt="Dish preview" class="modal-img" />
+        </div>
+        <div class="modal-info-col">
+          <div id="modal-dish-meta" class="dish-meta"></div>
+          <p id="modal-dish-desc" class="modal-desc"></p>
+          <div class="modal-ingredients">
+            <h4 class="ingredients-title">Key Artisanal Ingredients:</h4>
+            <ul id="modal-dish-ingredients" class="ingredients-list"></ul>
+          </div>
+        </div>
+      </div>
+      <footer class="modal-footer">
+        <span id="modal-dish-price" class="dish-price">$0.00</span>
+        <button type="button" id="modal-add-cart-btn" class="btn btn-primary">Add to Order</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Floating Toast Notification (jQuery fadeIn/fadeOut) -->
+  <aside id="toast-notification" class="toast-notification" role="status" aria-live="polite">
+    Order updated!
+  </aside>
+
+  <!-- Back to Top Button (jQuery .animate smooth scroll) -->
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Scroll back to top of page" title="Back to top">
+    ↑
+  </button>
+
+  <!-- Semantic Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-text">GUSTOSO</div>
+          <p class="footer-desc">
+            Artisanal Italian kitchen dedicated to traditional hand-kneaded pasta, wood-fired recipes, and modern dining experiences.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="products.html" class="footer-link">Full Menu</a></li>
+            <li><a href="cart.html" class="footer-link">Order &amp; Cart</a></li>
+            <li><a href="contact.html" class="footer-link">Reservations</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Culinary Hours</h4>
+          <ul class="footer-links">
+            <li>Mon – Thu: 12:00 PM – 10:00 PM</li>
+            <li>Fri – Sat: 12:00 PM – 11:30 PM</li>
+            <li>Sunday: 1:00 PM – 9:30 PM</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Location &amp; Inquiries</h4>
+          <ul class="footer-links">
+            <li>📍 42 Via Della Spiga, Florence District</li>
+            <li>📞 +1 (555) 782-4267</li>
+            <li>✉️ reservations@gustoso.it</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Gustoso Artisanal Italian Kitchen. Built with HTML5, CSS3, JavaScript (ES6) &amp; jQuery.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: jQuery CDN, Fallback Data, ES6 Store Logic, jQuery UI & AJAX -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>

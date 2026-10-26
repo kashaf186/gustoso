@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <radialGradient id="tPlate" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="85%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </radialGradient>
+    <filter id="tShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="#fbf9f5"/>
+  <circle cx="200" cy="150" r="120" fill="url(#tPlate)" stroke="#cbd5e1" stroke-width="2" filter="url(#tShadow)"/>
+  <!-- Cocoa Powder Dusting on Plate -->
+  <circle cx="130" cy="190" r="15" fill="#451a03" opacity="0.15"/>
+  <circle cx="270" cy="110" r="12" fill="#451a03" opacity="0.15"/>
+  <!-- Elegant Slice of Layered Tiramisu (isometric) -->
+  <g transform="translate(130, 85)" filter="url(#tShadow)">
+    <!-- Bottom Espresso Sponge Layer -->
+    <path d="M20 90 L120 70 L140 100 L40 120 Z" fill="#451a03"/>
+    <!-- Mascarpone Layer 1 -->
+    <path d="M20 75 L120 55 L140 85 L40 105 Z" fill="#fffbeb"/>
+    <!-- Second Espresso Sponge Layer -->
+    <path d="M20 60 L120 40 L140 70 L40 90 Z" fill="#78350f"/>
+    <!-- Top Whipped Mascarpone Layer -->
+    <path d="M20 45 L120 25 L140 55 L40 75 Z" fill="#fffbeb"/>
+    <!-- Side Front Depth -->
+    <path d="M20 45 L40 75 L40 120 L20 90 Z" fill="#fef08a" opacity="0.6"/>
+    <path d="M40 75 L140 55 L140 100 L40 120 Z" fill="#fef9c3" opacity="0.8"/>
+    <!-- Dusted Valrhona Cocoa Top Surface -->
+    <path d="M20 45 L120 25 L140 55 L40 75 Z" fill="#713f12" stroke="#451a03" stroke-width="1.5"/>
+    <!-- Cocoa Powder Pillows on Top -->
+    <ellipse cx="40" cy="55" rx="8" ry="6" fill="#451a03"/>
+    <ellipse cx="60" cy="50" rx="9" ry="6" fill="#451a03"/>
+    <ellipse cx="80" cy="45" rx="8" ry="6" fill="#451a03"/>
+    <ellipse cx="100" cy="40" rx="9" ry="6" fill="#451a03"/>
+    <ellipse cx="120" cy="35" rx="8" ry="6" fill="#451a03"/>
+    <ellipse cx="50" cy="65" rx="9" ry="6" fill="#451a03"/>
+    <ellipse cx="70" cy="60" rx="9" ry="6" fill="#451a03"/>
+    <ellipse cx="90" cy="55" rx="8" ry="6" fill="#451a03"/>
+    <ellipse cx="110" cy="50" rx="9" ry="6" fill="#451a03"/>
+  </g>
+  <!-- Dark Chocolate Curl Garnish -->
+  <path d="M190 115 Q210 95 215 115" stroke="#1c1917" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- Fresh Mint Leaf -->
+  <path d="M205 110 C215 95 230 105 220 120 Z" fill="#16a34a"/>
+</svg>

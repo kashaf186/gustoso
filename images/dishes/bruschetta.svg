@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="100%" height="100%">
+  <defs>
+    <radialGradient id="plateGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="85%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </radialGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="#fbf9f5"/>
+  <circle cx="200" cy="150" r="125" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2" filter="url(#shadow)"/>
+  <circle cx="200" cy="150" r="105" fill="url(#plateGrad)"/>
+  <circle cx="200" cy="150" r="90" fill="none" stroke="#e5e7eb" stroke-dasharray="3 3"/>
+  <!-- Artisanal Bread slices -->
+  <g transform="rotate(-15 170 150)">
+    <path d="M120 160 C120 130 160 120 200 125 C240 130 250 160 230 180 C210 200 140 190 120 160 Z" fill="#d97706" stroke="#b45309" stroke-width="3"/>
+    <path d="M125 158 C128 135 160 128 195 132 C230 136 240 160 223 175 C205 190 142 185 125 158 Z" fill="#fef3c7"/>
+    <!-- Diced Tomatoes -->
+    <circle cx="160" cy="148" r="12" fill="#ef4444"/>
+    <circle cx="178" cy="142" r="10" fill="#dc2626"/>
+    <circle cx="195" cy="152" r="11" fill="#ef4444"/>
+    <circle cx="170" cy="162" r="13" fill="#b91c1c"/>
+    <circle cx="188" cy="165" r="9" fill="#ef4444"/>
+    <circle cx="205" cy="145" r="10" fill="#dc2626"/>
+    <!-- Basil Leaves -->
+    <path d="M155 140 C145 130 155 120 170 125 C165 135 160 142 155 140 Z" fill="#16a34a"/>
+    <path d="M185 155 C190 145 205 148 202 162 C195 160 188 158 185 155 Z" fill="#22c55e"/>
+    <path d="M172 170 C165 175 160 165 170 160 C175 162 174 168 172 170 Z" fill="#15803d"/>
+    <!-- Balsamic Drizzle -->
+    <path d="M135 150 Q160 160 185 140 T225 160" fill="none" stroke="#451a03" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+  <!-- Second Bruschetta -->
+  <g transform="rotate(25 220 165)">
+    <path d="M190 150 C190 125 230 120 260 125 C290 130 300 155 285 170 C270 185 205 175 190 150 Z" fill="#d97706" stroke="#b45309" stroke-width="3"/>
+    <path d="M194 148 C196 130 225 125 255 128 C280 132 290 152 278 165 C262 178 205 170 194 148 Z" fill="#fef3c7"/>
+    <circle cx="225" cy="140" r="10" fill="#dc2626"/>
+    <circle cx="245" cy="138" r="11" fill="#ef4444"/>
+    <circle cx="235" cy="155" r="12" fill="#b91c1c"/>
+    <circle cx="260" cy="150" r="9" fill="#dc2626"/>
+    <path d="M228 135 C220 125 235 120 240 130 Z" fill="#16a34a"/>
+    <path d="M245 152 C255 148 250 160 242 158 Z" fill="#22c55e"/>
+    <path d="M205 142 Q235 150 265 135" fill="none" stroke="#451a03" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+</svg>
